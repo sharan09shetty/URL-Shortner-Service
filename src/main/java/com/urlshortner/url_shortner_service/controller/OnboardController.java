@@ -1,14 +1,22 @@
 package com.urlshortner.url_shortner_service.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.urlshortner.url_shortner_service.model.OnboardRequest;
+import com.urlshortner.url_shortner_service.model.OnboardResponse;
+import com.urlshortner.url_shortner_service.service.OnboardService;
+import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/onboard")
+@AllArgsConstructor
 public class OnboardController {
-    @GetMapping(value="/get")
-    public String getMessage(){
-        return "Hello World";
+
+    private final OnboardService onboardService;
+
+    @PostMapping(consumes = {"application/json"},
+    produces= {"application/json"})
+    public ResponseEntity<OnboardResponse> clientOnboard(@RequestBody OnboardRequest onboardRequest){
+        return ResponseEntity.ok(onboardService.onboardClient(onboardRequest));
     }
 }
