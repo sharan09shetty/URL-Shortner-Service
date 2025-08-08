@@ -14,7 +14,8 @@ CREATE TABLE shortened_url
   (
      id                UUID DEFAULT Gen_random_uuid() PRIMARY KEY,
      client_identifier TEXT NOT NULL,
-     shortened_url     TEXT UNIQUE NOT NULL,
+     customer_id       TEXT,
+     shortcode     TEXT UNIQUE NOT NULL,
      redirect_url      TEXT NOT NULL,
      is_single_access  BOOLEAN,
      expires_at        TIMESTAMP,

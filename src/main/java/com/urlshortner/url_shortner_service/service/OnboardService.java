@@ -16,7 +16,7 @@ public class OnboardService {
     private final ClientRepository clientRepository;
 
     public OnboardResponse onboardClient(OnboardRequest onboardRequest) {
-        ClientEntity clientEntity = clientRepository.findFirstByClientIdentifier(onboardRequest.getClientIdentifier().toLowerCase());
+        ClientEntity clientEntity = clientRepository.findByClientIdentifier(onboardRequest.getClientIdentifier().toLowerCase());
         if (clientEntity == null) {
             ClientEntity newclientEntity = this.buildClientEntity(onboardRequest);
             clientRepository.save(newclientEntity);

@@ -25,7 +25,7 @@ public class OnboardController {
         } catch (IllegalArgumentException iae) {
             return ResponseEntity.badRequest().body(OnboardResponse.builder().errorMessage(iae.getMessage()).build());
         } catch (Exception e) {
-            log.error("Unexpected error : {}", e.getMessage());
+            log.error("Unexpected error : ", e);
             return ResponseEntity.internalServerError().body(OnboardResponse.builder().errorMessage("Unexpected error during onboarding :" + e.getMessage()).build());
         }
     }
