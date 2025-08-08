@@ -13,15 +13,20 @@ import java.util.UUID;
 
 @Data
 @Builder
+@Table(name = "shortened_url")
 @Entity
-@Table(name="client")
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientEntity {
+public class ShortenedUrlEntity {
     @Id
     private UUID id;
-    private String name;
-    private String apiKey;
     private String clientIdentifier;
+    private String customerId;
+    private String shortcode;
+    private String redirectUrl;
+    private Boolean isSingleAccess;
+    private LocalDateTime expiresAt;
+    private int clickCount;
+    private LocalDateTime updated;
     private LocalDateTime created;
 }
