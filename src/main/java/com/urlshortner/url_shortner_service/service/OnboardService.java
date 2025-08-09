@@ -26,7 +26,7 @@ public class OnboardService {
                     .build();
         }
         return OnboardResponse.builder()
-                .errorMessage("Try with a different client-identifier. ")
+                .errorMessage("Try with a different client-identifier.")
                 .build();
     }
 
