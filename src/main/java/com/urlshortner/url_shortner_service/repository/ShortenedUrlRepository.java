@@ -9,4 +9,5 @@ import java.util.UUID;
 @Repository
 public interface ShortenedUrlRepository extends JpaRepository<ShortenedUrlEntity, UUID> {
     ShortenedUrlEntity findByShortcode(String shortcode);
+    ShortenedUrlEntity findByShortcodeAndClientIdentifier(String shortcode, String clientIdentifier);
 }
